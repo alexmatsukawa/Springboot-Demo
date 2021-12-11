@@ -1,0 +1,3 @@
+BASIC SPRINGBOOT APPLICATION
+
+--> Will be adding POSTGRES db connections as the application is developed...
