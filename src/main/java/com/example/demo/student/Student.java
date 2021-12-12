@@ -17,7 +17,7 @@ public class Student {
             strategy = GenerationType.SEQUENCE,
             generator = "student_sequence"
     )
-    //above is required tags to add student table to postgres db
+    //above is required tags to add student table to postgres db (SPRING DATA JPA)
     private Long id;
     private String name;
     private String email;
