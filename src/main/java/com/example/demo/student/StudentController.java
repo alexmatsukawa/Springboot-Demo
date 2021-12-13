@@ -25,4 +25,9 @@ public class StudentController {
     public void registerNewStudent(@RequestBody Student student) { //@RequestBody takes the student json data and maps it to a student object
         studentService.addNewStudent(student);
     }
+
+    @DeleteMapping(path = "{studentId}")
+    public void deleteStudent(@PathVariable("studentId") Long studentId) {
+        studentService.deleteStudent(studentId);
+    }
 }
