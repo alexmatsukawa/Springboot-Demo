@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.List;
+import java.util.Optional;
 
 @Service //sets this class as a Spring bean
 public class StudentService {
@@ -32,5 +33,15 @@ public class StudentService {
         //better way of getting a list of all students compared to above code...
         return studentRepository.findAll(); //returns a list of all students in the db
         //magic of Spring JPA -> don't need to implement the interface methods for a Postgres repo; methods will work automatically
+    }
+
+    //new method checks to see if a student's email is present in the db system; if not, save the student; else send an error message
+    public void addNewStudent(Student student) {
+        Optional<Student> studentOptional = studentRepository.findStudentByEmail(student.getEmail());
+        if(studentOptional.isPresent()) {
+            throw new IllegalStateException("email already exists");
+        }
+        studentRepository.save(student);
+        //System.out.println(student);
     }
 }
