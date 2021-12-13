@@ -19,15 +19,13 @@ public class StudentConfig {
             Student miriam = new Student(
                     "Miriam",
                     "miriam.jamal@gmail.com",
-                    LocalDate.of(2000, JANUARY, 5),
-                    21
+                    LocalDate.of(2000, JANUARY, 5)
             );
             //No longer need ID field since the DB will auto-generate it for us when adding a new student
             Student alex = new Student(
                     "Alex",
                     "amats96@gmail.com",
-                    LocalDate.of(1999, JULY, 22),
-                    22
+                    LocalDate.of(1999, JULY, 22)
             );
 
             repository.saveAll(
